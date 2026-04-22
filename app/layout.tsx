@@ -4,6 +4,7 @@ import "./globals.css";
 import { Footer } from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { GoogleAnalytics } from "@next/third-parties/google"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
       </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
     </html>
   );
 }

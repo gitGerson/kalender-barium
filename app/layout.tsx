@@ -8,7 +8,7 @@ import { GoogleAnalytics } from "@next/third-parties/google"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
-const BASE_URL = "https://kalender-barium.dfxx.fun";
+const BASE_URL = "https://barium.hmptk.info";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

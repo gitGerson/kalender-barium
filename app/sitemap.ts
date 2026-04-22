@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://kalender-barium.dfxx.fun",
+      url: "https://barium.hmptk.info",
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 1,

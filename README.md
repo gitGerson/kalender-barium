@@ -2,7 +2,7 @@
 
 Kalender Prestasi Mahasiswa — kumpulan kegiatan, kompetisi, dan pelatihan untuk mahasiswa, dikelola oleh H.M.P.T.K. UNNES.
 
-Live: [kalender-barium.dfxx.fun](https://kalender-barium.dfxx.fun)
+Live: [barium.hmptk.info](https://barium.hmptk.info)
 
 ## About
 

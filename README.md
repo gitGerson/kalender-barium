@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kalender Barium
+
+Kalender Prestasi Mahasiswa — kumpulan kegiatan, kompetisi, dan pelatihan untuk mahasiswa, dikelola oleh H.M.P.T.K. UNNES.
+
+Live: [kalender-barium.dfxx.fun](https://kalender-barium.dfxx.fun)
+
+## About
+
+Kalender Barium is a student achievement calendar that aggregates competitions, trainings, and events with their registration deadlines. Admins manage event data directly through a Google Sheets spreadsheet — no database or backend required.
+
+Key features:
+- **Event list view** — browse events by month with search and category/free filters
+- **Calendar view** — monthly grid with deadline markers; click a date to see that day's events
+- **Urgency badges** — highlights deadlines within 5 days (orange) or 2 days (red)
+- **Hourly data refresh** — events are fetched from Google Sheets CSV and cached for 1 hour via Next.js fetch cache
+
+## Tech Stack
+
+- **Next.js 16** (App Router) + **React 19**
+- **TypeScript 5**
+- **Tailwind CSS v4**
+- **Google Sheets** as the data source (published CSV)
+- **Vercel Analytics** + **Speed Insights** + **Google Analytics**
 
 ## Getting Started
 
-First, run the development server:
+Copy the environment file and fill in your Google Sheets CSV URL:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.local.example .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`.env.local` variables:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Variable | Description |
+|---|---|
+| `SHEET_CSV_URL` | Published CSV URL from Google Sheets (`File → Share → Publish to web → CSV`) |
+| `NEXT_PUBLIC_GA_ID` | Google Analytics Measurement ID (`G-XXXXXXXXXX`) |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Then run the dev server:
 
-## Learn More
+```bash
+npm install
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Open [http://localhost:3000](http://localhost:3000).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Google Sheets Data Format
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The spreadsheet must have these columns (row 1 = header):
 
-## Deploy on Vercel
+| Column | Field | Notes |
+|---|---|---|
+| A | `title` | Event name |
+| B | `category` | e.g. LKTIN, Essay, PKM |
+| C | `deadline` | Registration deadline (DD/MM/YYYY) |
+| D | `price` | blank or `0` = Free; otherwise e.g. `Rp75.000` |
+| E | `imageUrl` | Poster image URL |
+| F | `linkInfo` | Info/detail page URL |
+| G | `linkReg` | Registration URL |
+| H | `isActive` | `TRUE` to show, `FALSE` to hide |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Commands
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run dev      # start dev server at http://localhost:3000
+npm run build    # production build
+npm run start    # run production build
+npm run lint     # ESLint
+```
+
+## Deployment
+
+Deploy to Vercel and set the environment variables (`SHEET_CSV_URL`, `NEXT_PUBLIC_GA_ID`) in the Vercel project settings.
+
+## Developer
+
+Built by [@gerson.m5](https://instagram.com/gerson.m5) · [Contact via WhatsApp](https://wa.me/6285156106221)

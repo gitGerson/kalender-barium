@@ -5,6 +5,7 @@ import type { Event } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { MonthEventSection } from "./MonthEventSection";
 import { CalendarView } from "./CalendarView";
+import { RefreshButton } from "./RefreshButton";
 
 type Tab = "events" | "calendar";
 
@@ -19,7 +20,8 @@ export function MainTabs({ events }: Props) {
     <>
       {/* sticky tab bar */}
       <div className="sticky top-0 z-40 border-b border-blue-100 bg-white">
-        <div className="mx-auto flex max-w-6xl justify-center gap-1 px-4 sm:px-6">
+        <div className="mx-auto flex max-w-6xl items-center px-4 sm:px-6">
+          <div className="flex flex-1 justify-center gap-1">
           {(
             [
               { key: "events", label: "Lihat Kegiatan" },
@@ -39,6 +41,8 @@ export function MainTabs({ events }: Props) {
               {label}
             </button>
           ))}
+          </div>
+          <RefreshButton />
         </div>
       </div>
 

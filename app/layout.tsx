@@ -64,6 +64,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={`antialiased font-sans ${inter.variable}`}>
+      <head>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1843115638296849" crossorigin="anonymous"></script>
+      </head>
       <body className="min-h-screen flex flex-col">
         {children}
         <Footer />
